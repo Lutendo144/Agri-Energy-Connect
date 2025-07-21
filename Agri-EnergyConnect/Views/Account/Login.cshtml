@@ -1,0 +1,44 @@
+﻿@model Agri_EnergyConnect.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login - Agri-Energy Connect";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg rounded-4">
+                <div class="card-body p-5 bg-light">
+                    <h2 class="text-center mb-4 text-success">Welcome Back</h2>
+                    <form asp-controller="Account" asp-action="Login" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email Address</label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter your Email Address" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" class="form-control" type="password" placeholder="Enter your Password" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 mt-3 rounded-pill">Login</button>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <a href="/Admin/Login" class="btn btn-outline-dark">Admin Login</a>
+                    </div>
+
+
+                    <p class="mt-4 text-center text-muted small">
+                        Don’t have an account? <a href="/Account/SignUp" class="text-decoration-none text-primary">Create one here</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

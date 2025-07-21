@@ -1,0 +1,45 @@
+﻿@model Agri_EnergyConnect.Models.ProjectCollaboration
+@{
+    ViewData["Title"] = "Edit Collaboration Project";
+}
+<div class="container my-5">
+    <h2 class="text-success text-center mb-4">Edit Project</h2>
+    <form asp-action="Edit" method="post" class="card p-4 shadow-sm">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="ProjectName" class="form-control" placeholder="Project Name" />
+            <label asp-for="ProjectName"></label>
+            <span asp-validation-for="ProjectName" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <textarea asp-for="Description" class="form-control" placeholder="Description" style="height: 120px;"></textarea>
+            <label asp-for="Description"></label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="OwnerName" class="form-control" placeholder="Owner Name" />
+            <label asp-for="OwnerName"></label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="ContactEmail" class="form-control" placeholder="Contact Email" type="email" />
+            <label asp-for="ContactEmail"></label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Update Project</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<div class="mb-4">
+    <a asp-controller="Home" asp-action="UserHome" class="btn btn-outline-success">
+        ← Back to Home
+    </a>
+</div>

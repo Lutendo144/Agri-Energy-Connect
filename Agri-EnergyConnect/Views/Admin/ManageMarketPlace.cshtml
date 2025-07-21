@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Agri_EnergyConnect.Models.MarketplaceItem>
+@{
+    ViewData["Title"] = "Manage Marketplace";
+}
+
+<h2>Manage Marketplace</h2>
+
+<form method="get" asp-controller="Admin" asp-action="ManageMarketPlace" class="form-inline mb-4">
+    <div class="form-group mr-2">
+        <label for="category" class="mr-2">Category:</label>
+        <input type="text" name="category" class="form-control" placeholder="Enter category" />
+    </div>
+
+    <div class="form-group mr-2">
+        <label for="startDate" class="mr-2">Start Date:</label>
+        <input type="date" name="startDate" class="form-control" />
+    </div>
+
+    <div class="form-group mr-2">
+        <label for="endDate" class="mr-2">End Date:</label>
+        <input type="date" name="endDate" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No products found.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-dark table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Seller</th>
+                    <th>Seller Email</th>
+                    <th>Date Added</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>@item.Category</td>
+                        <td>@item.Price.ToString("C")</td>
+                        <td>@item.SellerName</td>
+                        <td>@item.SellerEmail</td>
+                        <td>@item.DateAdded.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+<p>
+
+</p>
+<div class="mb-4">
+    <a asp-controller="Admin" asp-action="DashBoard" class="btn btn-outline-success">
+        ← Back to Home
+    </a>
+</div>

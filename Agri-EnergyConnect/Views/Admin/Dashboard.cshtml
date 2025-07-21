@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+
+}
+
+<h2>Welcome, @ViewBag.AdminName!</h2>
+
+<p>This is your admin dashboard.</p>
+
+<div style="margin-top: 30px;">
+    <a asp-controller="Admin" asp-action="CreateUser" class="btn btn-primary" style="margin-right: 15px;">
+         Create New User
+    </a>
+
+    <a asp-controller="Admin" asp-action="ManageUser" class="btn btn-secondary" style="margin-right: 15px;">
+         Manage Users
+    </a>
+
+    <a asp-controller="Admin" asp-action="ManageMarketPlace" class="btn btn-secondary" style="margin-right: 15px;">
+        Manage Marketplace
+    </a>
+
+
+    <a asp-action="Logout" class="btn btn-danger">
+         Logout
+    </a>
+</div>

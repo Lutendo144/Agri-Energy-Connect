@@ -1,0 +1,62 @@
+﻿@model Agri_EnergyConnect.Models.ViewModels.ProjectCommentListViewModel
+
+@{
+    ViewData["Title"] = "Projects with Comments";
+}
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-success">Projects and Comments</h2>
+            <a asp-action="Create" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Create Project
+            </a>
+        </div>
+
+    @foreach (var vm in Model.ProjectsWithComments)
+    {
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title">@vm.Project.ProjectName</h4>
+                <p class="card-text">@vm.Project.Description</p>
+                <a asp-action="Join" asp-route-id="@vm.Project.Id" class="btn btn-outline-success btn-sm me-2">Join</a>
+                <a asp-action="Comment" asp-route-id="@vm.Project.Id" class="btn btn-outline-primary btn-sm">View All Comments</a>
+            </div>
+
+            @if (vm.Comments != null && vm.Comments.Any())
+            {
+                <div class="card-footer bg-light">
+                    <h6 class="text-muted">Recent Comments:</h6>
+                    @foreach (var comment in vm.Comments.Take(3))
+                    {
+                        <div class="border-bottom mb-2 pb-2">
+                            <p class="mb-1">@comment.Content</p>
+                            <small class="text-muted">By @comment.AuthorName on @comment.CreatedAt.ToString("dd MMM yyyy HH:mm")</small>
+                        </div>
+                    }
+                </div>
+            }
+
+            <div class="card-footer">
+                <form asp-action="AddComment" method="post">
+                    <input type="hidden" name="projectId" value="@vm.Project.Id" />
+                    <div class="row g-2 align-items-center">
+                        <div class="col-md-3">
+                            <input class="form-control form-control-sm" name="authorName" placeholder="Your name" />
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-control form-control-sm" name="content" placeholder="Add a comment..." />
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <button type="submit" class="btn btn-sm btn-primary">Post</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+<div class="mb-4">
+    <a asp-controller="Home" asp-action="UserHome" class="btn btn-outline-success">
+        ← Back to Home
+    </a>
+</div>

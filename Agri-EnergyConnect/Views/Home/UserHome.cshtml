@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "User Home";
+}
+
+<div class="container my-5">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <script>
+        setTimeout(function () {
+            var alert = document.querySelector('.alert');
+            if (alert) {
+                alert.classList.remove('show');
+                alert.classList.add('hide');
+            }
+        }, 5000);
+    </script>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-success">Welcome to Agri-Energy Connect</h2>
+        <form asp-controller="Account" asp-action="Logout" method="post">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
+
+    <p class="text-center text-light mb-5 fs-5">Explore our core features below:</p>
+
+    <div class="row justify-content-center g-4">
+        <div class="col-6 col-md-4 text-center">
+            <a asp-controller="SustainableFarming" asp-action="Index" class="feature-btn bg-success text-white">
+                Sustainable <br />Farming Hub
+            </a>
+        </div>
+
+        <div class="col-6 col-md-4 text-center">
+            <a asp-controller="GreenMarketplace" asp-action="Index" class="feature-btn bg-success text-white">
+                Green Energy & <br />Marketplace
+            </a>
+        </div>
+
+        <div class="col-6 col-md-4 text-center">
+            <a asp-controller="EducationalTraining" asp-action="Index" class="feature-btn bg-success text-white">
+                Educational & <br />Training Resources
+            </a>
+        </div>
+
+        <div class="col-6 col-md-4 text-center">
+            <a asp-controller="ProjectCollaboration" asp-action="Index" class="feature-btn bg-success text-white">
+                Project <br />Collaboration
+            </a>
+        </div>
+
+        <div class="col-6 col-md-4 text-center">
+            <a asp-controller="FundingOpportunities" asp-action="Index" class="feature-btn bg-success text-white">
+                Funding <br />Opportunities
+            </a>
+        </div>
+
+        <div class="col-6 col-md-4 text-center">
+            <a asp-controller="GreenMarketplace" asp-action="AddItem" class="feature-btn bg-success text-white">
+                Add <br />New Item
+            </a>
+        </div>
+    </div>
+</div>

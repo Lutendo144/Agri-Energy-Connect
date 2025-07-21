@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Join Project";
+    var projectName = ViewBag.ProjectName as string;
+    var projectId = (int)ViewBag.ProjectId;
+}
+
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="text-success">Join Project: @projectName</h2>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-3">
+        <form asp-action="JoinConfirmed" method="post">
+            <input type="hidden" name="projectId" value="@projectId" />
+
+            <div class="mb-3">
+                <label for="joinerName" class="form-label">Your Name</label>
+                <input type="text" class="form-control" name="joinerName" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="joinerEmail" class="form-label">Your Email</label>
+                <input type="email" class="form-control" name="joinerEmail" required />
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Join Project</button>
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="mb-4">
+    <a asp-controller="Home" asp-action="UserHome" class="btn btn-outline-success">
+        ← Back to Home
+    </a>
+</div>

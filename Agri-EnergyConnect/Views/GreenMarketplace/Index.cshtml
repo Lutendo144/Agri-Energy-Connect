@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Agri_EnergyConnect.Models.MarketplaceItem>
+
+@{
+    ViewData["Title"] = "Green Energy Marketplace";
+}
+
+<div class="container my-5">
+    <h2 class="text-success text-center mb-4">Green Energy & Marketplace</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-success">
+                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                        {
+                            <img src="@item.ImageUrl" class="card-img-top" alt="@item.ProductName" style="height: 200px; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <img src="/images/default-placeholder.png" class="card-img-top" alt="No Image" style="height: 200px; object-fit: cover;">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title text-success">@item.ProductName</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@item.Category</h6>
+                            <p class="card-text">@item.Description</p>
+                            <p class="fw-bold text-success">Price: R @item.Price.ToString("0.00")</p>
+                        </div>
+                        <div class="card-footer small text-muted">
+                            <div>Seller: @item.SellerName</div>
+                            <div>Email: @item.SellerEmail</div>
+                            <div>Posted: @item.DateAdded.ToString("dd MMM yyyy")</div>
+                            <div class="mt-2">
+                                <a href="mailto:@item.SellerEmail" class="btn btn-sm btn-outline-success">
+                                    Contact Seller
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center">
+            No items have been added to the marketplace yet.
+        </div>
+    }
+</div>
+
+<div class="mb-4">
+    <a asp-controller="Home" asp-action="UserHome" class="btn btn-outline-success">
+        ← Back to Home
+    </a>
+</div>
+

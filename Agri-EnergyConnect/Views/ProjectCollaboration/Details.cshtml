@@ -1,0 +1,23 @@
+﻿
+@model Agri_EnergyConnect.Models.ProjectCollaboration
+
+@{
+    ViewData["Title"] = "Collaboration Details";
+}
+
+<div class="container my-5">
+    <h2 class="text-success">@Model.ProjectName</h2>
+
+    <p><strong>Description:</strong></p>
+    <p>@Model.Description</p>
+
+    <p><strong>Collaborators:</strong> @Model.OwnerName</p>
+    <p><small>Created on: @Model.CreatedAt.ToString("dd MMM yyyy")</small></p>
+
+    <a asp-action="Index" class="btn btn-outline-success mt-3">Back to Collaborations</a>
+</div>
+<div class="mb-4">
+    <a asp-controller="Home" asp-action="UserHome" class="btn btn-outline-success">
+        ← Back to Home
+    </a>
+</div>

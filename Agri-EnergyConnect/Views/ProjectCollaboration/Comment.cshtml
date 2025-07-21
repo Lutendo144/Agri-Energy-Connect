@@ -1,0 +1,57 @@
+﻿@model Agri_EnergyConnect.Models.ViewModels.ProjectCommentViewModel
+
+@{
+    ViewData["Title"] = "Comments for " + Model.Project.ProjectName;
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<div class="container my-5">
+    <h2 class="text-success text-center mb-4">Comments: @Model.Project.ProjectName</h2>
+
+    <div class="card mb-4 p-4 shadow-sm">
+        <form asp-action="AddComment" method="post">
+            <input type="hidden" name="projectId" value="@Model.Project.Id" />
+
+            <div class="mb-3">
+                <label asp-for="NewComment.AuthorName" class="form-label">Your Name</label>
+                <input asp-for="NewComment.AuthorName" class="form-control" name="authorName" />
+                <span asp-validation-for="NewComment.AuthorName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NewComment.Content" class="form-label">Comment</label>
+                <textarea asp-for="NewComment.Content" class="form-control" name="content" rows="4"></textarea>
+                <span asp-validation-for="NewComment.Content" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+    </div>
+
+    @if (Model.Comments != null && Model.Comments.Any())
+    {
+        <div class="list-group">
+            @foreach (var c in Model.Comments)
+            {
+                <div class="list-group-item">
+                    <p class="mb-1">@c.Content</p>
+                    <small class="text-muted">By @c.AuthorName on @c.CreatedAt.ToString("dd MMM yyyy HH:mm")</small>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">No comments yet. Be the first to comment!</div>
+    }
+</div>
+<div class="mb-4">
+    <a asp-controller="Home" asp-action="UserHome" class="btn btn-outline-success">
+        ← Back to Home
+    </a>
+</div>

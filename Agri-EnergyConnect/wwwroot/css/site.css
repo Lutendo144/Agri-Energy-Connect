@@ -1,0 +1,242 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('/images/greenBg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f4f4f4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+
+header {
+    background-color: #013220; 
+    color: #fff; 
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); 
+}
+
+    header .navbar-brand {
+        font-size: 2rem;
+        color: #ff6600;
+        font-weight: bold;
+    }
+
+    header .navbar-toggler-icon {
+        background-color: #ff6600; 
+    }
+
+    header .nav-link {
+        color: #fff; 
+        font-weight: bold;
+        padding: 0.5rem 1rem; 
+    }
+
+        header .nav-link:hover {
+            color: #ff6600; 
+            background-color: #333; 
+            border-radius: 4px; 
+        }
+
+
+
+.landing {
+    background-color: rgba(0, 0, 0, 0.85);
+    max-width: 960px;
+    margin: 3rem auto;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px;
+}
+
+   
+    .landing h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #ff9900;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+section h2 {
+    font-size: 1.8rem;
+    color: #ffaa00;
+}
+
+
+.feature-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 20px;
+    background-color: rgba(0, 128, 0, 0.85);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+    .feature-btn:hover {
+        background-color: #ffaa00;
+        transform: scale(1.05);
+        color: #000;
+    }
+
+
+.btn-group {
+    margin-top: 1.5rem;
+}
+
+    .btn-group a {
+        display: inline-block;
+        margin: 0 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+        color: white;
+        background-color: #28a745;
+        text-decoration: none;
+    }
+
+        .btn-group a:hover {
+            background-color: #ffaa00;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+
+footer.footer {
+    background-color: #013220;
+    color: #ff6600; 
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center; 
+}
+
+    footer.footer a {
+        color: #ff6600;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+        footer.footer a:hover {
+            text-decoration: underline;
+            color: #ff9900; 
+        }
+
+
+label.form-label {
+    color: #eee;
+    font-weight: 600;
+}
+
+input.form-control,
+textarea.form-control {
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #222;
+}
+
+    input.form-control:focus,
+    textarea.form-control:focus {
+        border-color: #ffaa00;
+        box-shadow: 0 0 8px rgba(255, 153, 0, 0.5);
+        outline: none;
+    }
+
+
+.text-danger {
+    color: #ff4d4d;
+    font-weight: 500;
+}
+
+.form-check-input {
+    border-radius: 50%;
+}
+
+.form-check-label {
+    font-weight: 600;
+    color: #eee;
+}
+
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 153, 0, 0.5);
+}
+
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .landing {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .feature-btn {
+        width: 130px;
+        height: 130px;
+        font-size: 0.95rem;
+    }
+
+    .btn-group a {
+        padding: 0.5rem 1rem;
+    }
+
+    .landing h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body, html {
+        font-size: 14px;
+    }
+
+    .feature-btn {
+        width: 110px;
+        height: 110px;
+        font-size: 0.85rem;
+    }
+
+    .btn-group a {
+        font-size: 14px;
+    }
+
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+
+  
+    .sustainable-card {
+        background-color: #1c1c1c;
+        border-left: 5px solid #008000;
+        padding: 1rem;
+        color: white;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+
+}

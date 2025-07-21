@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Educational & Training Resources";
+}
+
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="text-success">Educational & Training Resources</h2>
+        <p class="text-muted">Access valuable learning materials to improve your farming and energy practices.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="p-4 bg-dark text-white rounded shadow">
+                <h4>Online Courses</h4>
+                <p>Free and paid courses on sustainable agriculture and renewable energy.</p>
+                <a href="https://www.futurelearn.com/subjects/nature-and-environment-courses" target="_blank" class="btn btn-warning">Explore Courses</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-4 bg-dark text-white rounded shadow">
+                <h4>Video Tutorials</h4>
+                <p>Watch practical tutorials on soil testing, composting, solar setups, and more.</p>
+                <a href="https://www.youtube.com/results?search_query=sustainable+farming+training" target="_blank" class="btn btn-warning">Watch Videos</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-4 bg-dark text-white rounded shadow">
+                <h4>PDF Guides</h4>
+                <p>Download detailed manuals and field guides for eco-friendly farming methods.</p>
+                <a href="https://www.fao.org/sustainability" target="_blank" class="btn btn-warning">Download Guides</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-4 bg-dark text-white rounded shadow">
+                <h4>Workshops & Webinars</h4>
+                <p>Join live or recorded events led by experts in agriculture and clean energy.</p>
+                <a href="https://www.unfoodsystemshub.org/hub-solution/food-systems-solutions-webinars" target="_blank" class="btn btn-warning">View Events</a>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h3 class="text-success">Suggest a Resource or Subscribe for Updates</h3>
+            <p class="text-muted">We'd love to hear from you! Share useful links or stay in the loop.</p>
+        </div>
+
+        <form method="post" asp-action="SubmitResource" class="bg-dark text-white p-4 rounded shadow">
+            <div class="mb-3">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" name="name" id="name" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" name="email" id="email" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label for="link" class="form-label">Resource Link (optional)</label>
+                <input type="url" name="link" id="link" class="form-control" placeholder="https://example.com" />
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description (optional)</label>
+                <textarea name="description" id="description" rows="3" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-warning mt-3">Submit</button>
+        </form>
+    </div>
+
+</div>

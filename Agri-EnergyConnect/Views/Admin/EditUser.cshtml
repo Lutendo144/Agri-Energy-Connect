@@ -1,0 +1,40 @@
+﻿@model Agri_EnergyConnect.Models.AppUser
+
+<div class="container mt-5">
+    <h3>Edit User</h3>
+
+    <form asp-action="EditUser" method="post">
+        <input asp-for="Email" type="hidden" />
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input asp-for="Email" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label>Phone Number</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Password</label>
+            <input asp-for="Password" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Role</label>
+            <input asp-for="Role" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a asp-action="ManageUser" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+<p>
+
+</p>
+<div class="mb-4">
+    <a asp-controller="Admin" asp-action="DashBoard" class="btn btn-outline-success">
+        ← Back to Home
+    </a>
+</div>
